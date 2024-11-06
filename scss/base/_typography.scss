@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 body {
   font-family: "Lato", sans-serif;
@@ -15,6 +16,7 @@ body {
   backface-visibility: hidden;
   margin-bottom: 6rem;
 
+  
   &--main {
     display: block;
     font-size: 6rem;
@@ -25,6 +27,13 @@ body {
     animation-timing-function: ease-out;
     /* animation-iteration-count: 3; */
     /* animation-delay: 3s; */
+
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+  
   }
   &--sub {
     display: block;
@@ -32,6 +41,10 @@ body {
     font-weight: 400;
     letter-spacing: 1.74rem;
     animation: moveInRight 1s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: .5rem;
+    }
   }
 }
 
@@ -47,6 +60,14 @@ body {
   color: transparent;
   letter-spacing: .2rem;
   transition: all .2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
